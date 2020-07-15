@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # see if uswds version has changed since last nasawds release. if not, do nothing.
+      # see if uswds version has changed since last kswds release. if not, do nothing.
 
       #checkout develop branch
       - uses: actions/checkout@v1
@@ -54,7 +54,7 @@ jobs:
           prerelease: true
 
       - run: npm run release
-      - run: echo "::set-env name=RELEASE_ASSET_PATH::$(find . -name "nasawds-*.zip")"
+      - run: echo "::set-env name=RELEASE_ASSET_PATH::$(find . -name "kswds-*.zip")"
       # https://askubuntu.com/a/682130
       - run: echo "::set-env name=RELEASE_ASSET_NAME::$(echo ${RELEASE_ASSET_PATH:2})"
 

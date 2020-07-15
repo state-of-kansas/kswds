@@ -32,7 +32,7 @@ jobs:
         prerelease: false
     - run: npm install
     - run: npm run release
-    - run: echo "::set-env name=RELEASE_ASSET_PATH::$(find . -name "nasawds-*.zip")"
+    - run: echo "::set-env name=RELEASE_ASSET_PATH::$(find . -name "kswds-*.zip")"
     # https://askubuntu.com/a/682130
     - run: echo "::set-env name=RELEASE_ASSET_NAME::$(echo ${RELEASE_ASSET_PATH:2})"
 
