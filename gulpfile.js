@@ -14,7 +14,6 @@ from https://github.com/uswds/uswds-gulp/blob/master/gulpfile.js
 */
 
 const autoprefixer = require("autoprefixer");
-const autoprefixerOptions = require("./node_modules/uswds-gulp/config/browsers");
 const csso = require("postcss-csso");
 const gulp = require("gulp");
 const pkg = require("./node_modules/uswds/package.json");
@@ -77,7 +76,7 @@ gulp.task("copy-uswds-images", () => {
   return gulp.src(`${uswds}/img/**/**`).pipe(gulp.dest(`${IMG_DEST}`));
 });
 
-gulp.task("copy-nasa-images", () => {
+gulp.task("copy-ks-images", () => {
   return gulp.src(`./src/theme/img/**/**`)
   .pipe(gulp.dest(`${IMG_DEST}`));
 });
@@ -89,9 +88,12 @@ gulp.task("copy-uswds-js", () => {
 gulp.task("build-sass", function(done) {
   var plugins = [
     // Autoprefix
-    autoprefixer(autoprefixerOptions),
+    autoprefixer({
+      cascade: false,
+      grid: true
+    }),
     // Minify
-    csso({ forceMediaMerge: false })
+    csso({ forceMediaMerge: false }),
   ];
   return (
     gulp
@@ -120,7 +122,7 @@ gulp.task(
   gulp.series(
     "copy-uswds-fonts",
     "copy-uswds-images",
-    "copy-nasa-images",
+    "copy-ks-images",
     "copy-uswds-js",
     "build-sass"
   )
