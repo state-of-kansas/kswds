@@ -7,7 +7,7 @@ on:
 jobs:
   update:
 
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
 
     steps:
       - name: Latest release is a pre-release, older than two weeks, with no open issues/PRs.
@@ -41,7 +41,7 @@ jobs:
           fi
 
           exit 0
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
         with:
           ref: develop
       - uses: actions/setup-node@v1
@@ -58,9 +58,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   release:
     needs: update
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
       with:
         ref: master
     - uses: actions/setup-node@v1
