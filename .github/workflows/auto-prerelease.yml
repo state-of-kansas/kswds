@@ -7,13 +7,13 @@ on:
 jobs:
   pre-release:
 
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
 
     steps:
       # see if uswds version has changed since last kswds release. if not, do nothing.
 
       #checkout develop branch
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
         with:
           ref: develop
       # https://github.com/actions/setup-node
