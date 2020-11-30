@@ -10,6 +10,10 @@ jobs:
     runs-on: ubuntu-18.04
 
     steps:
+      - name: install jq
+        run: |
+          apt-get update -y
+          apt-get install -y jq
       - name: Latest release is a pre-release, older than two weeks, with no open issues/PRs.
         run: |
           RELEASES=$(curl --silent "https://api.github.com/repos/state-of-kansas/kswds/releases")
