@@ -10,11 +10,17 @@ jobs:
     runs-on: ubuntu-18.04
 
     steps:
+      - name: install dependencies
+        run: |
+          sudo apt-get update -y
+          sudo apt-get install -y git jq
+
       # see if uswds version has changed since last kswds release. if not, do nothing.
 
       #checkout develop branch
       - uses: actions/checkout@v2
         with:
+          repository: state-of-kansas/kswds
           ref: develop
       # https://github.com/actions/setup-node
       - uses: actions/setup-node@v1
