@@ -12,8 +12,8 @@ jobs:
     steps:
       - name: install dependencies
         run: |
-          apt-get update -y
-          apt-get install -y git jq
+          sudo apt-get update -y
+          sudo apt-get install -y git jq
 
       # see if uswds version has changed since last kswds release. if not, do nothing.
 
